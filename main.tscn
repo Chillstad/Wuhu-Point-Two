@@ -1,6 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://di6j3dsp32b3a"]
 
 [ext_resource type="PackedScene" uid="uid://c08oldpru63qm" path="res://Wuhu Island.tscn" id="1_ij4qp"]
+[ext_resource type="PackedScene" uid="uid://vkeq5yqyu7cv" path="res://plane.tscn" id="2_vqu40"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_2n802"]
 rayleigh_coefficient = 4.0
