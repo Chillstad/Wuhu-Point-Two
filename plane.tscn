@@ -1,19 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://vkeq5yqyu7cv"]
+[gd_scene load_steps=4 format=3 uid="uid://v26j5n8xlh1n"]
 
 [ext_resource type="Script" path="res://plane.gd" id="1_mjhk8"]
-[ext_resource type="PackedScene" uid="uid://7pvu5sshgqu5" path="res://toyPlane.glb" id="2_8cldc"]
+[ext_resource type="PackedScene" uid="uid://hgyftr7mtyl7" path="res://cutePlane.tscn" id="2_jymt8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nkbjo"]
 
 [node name="Plane" type="CharacterBody3D"]
 script = ExtResource("1_mjhk8")
 
-[node name="toyPlane" parent="." instance=ExtResource("2_8cldc")]
-rotation_edit_mode = 2
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.509942, -3.4121, 0, 3.4121, 0.509942, 0, 0, 0, 3.45, 0, 0, 0)
+transform = Transform3D(0.210618, -3.44356, 0, 3.44356, 0.210618, 0, 0, 0, 3.45, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_nkbjo")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.17423e-08, -0.296758, 0.954953, -1.29717e-08, 0.954953, 0.296758, -1, 0, -4.37114e-08, 10.74, 5, 0)
+transform = Transform3D(-4.33076e-08, 0.135612, 0.990762, 5.92779e-09, 0.990762, -0.135612, -1, -2.66454e-15, -4.37114e-08, 2.74, 0.40975, 0)
+current = true
+
+[node name="cutePlane" parent="." instance=ExtResource("2_jymt8")]
+transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 0, 0, 0)

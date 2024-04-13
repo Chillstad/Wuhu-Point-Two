@@ -6,6 +6,7 @@ var buffer_velocity = 0.0
 
 
 
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -20,14 +21,22 @@ func _physics_process(delta):
 	
 	#velocity -= Vector3.rotated(new Vector3(0, input_thrust_dir * delta * speed_multiplyer, 0), global_rotation)
 	buffer_velocity += (input_thrust_dir * speed_multiplyer * delta)
+	
+
+	var buffer_rotation = Vector3(input_roll_dir * delta, input_yaw_dir * delta, input_pitch_dir * delta )
+	
+	if(buffer_rotation.x != 0):
+		global_rotation.x = lerp_angle(global_rotation.x , global_rotation.x + buffer_rotation.x, 0.75)
+	else:
+		global_rotation.x = lerp_angle(global_rotation.x, 0, 0.01)
+		
+	global_rotation.z = lerp_angle(global_rotation.z, 0, 0.01)
+	
+	global_rotation.x = clamp(global_rotation.x, -PI/3, PI/3)
+	global_rotation.z = clamp(global_rotation.z + buffer_rotation.z, -PI/2.5, PI/2.5)
+	global_rotation.y += global_rotation.x * 0.005
+	
 	velocity = transform.basis.x * buffer_velocity
-
-	
-	
-	global_rotation.x += input_roll_dir * delta
-	global_rotation.y += input_yaw_dir * delta
-	global_rotation.z += input_pitch_dir * delta
-
 	
 
 	move_and_slide()
