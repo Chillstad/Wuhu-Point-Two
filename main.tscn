@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://di6j3dsp32b3a"]
+
+[ext_resource type="PackedScene" uid="uid://c10580imkswsv" path="res://Wuhu Island Blender/Wuhu Island.blend" id="1_mtocu"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Wuhu Island" parent="." instance=ExtResource("1_mtocu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
