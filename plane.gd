@@ -10,6 +10,8 @@ var input_thrust_dir = 0
 
 @export var mouse_controlled = true
 
+@export var camera : Camera3D
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")

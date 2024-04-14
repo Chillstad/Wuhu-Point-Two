@@ -12,3 +12,7 @@ func _ready():
 func _on_pressed():
 	print("changeing scene")
 	get_tree().change_scene_to_file("res://main.tscn")
+
+
+func _on_button_2_pressed():
+	get_tree().change_scene_to_file("res://splitscreen.tscn")

@@ -6,8 +6,9 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nkbjo"]
 
-[node name="Plane" type="CharacterBody3D"]
+[node name="Plane" type="CharacterBody3D" node_paths=PackedStringArray("camera")]
 script = ExtResource("1_mjhk8")
+camera = NodePath("FollowCam")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.210618, -3.44356, 0, 3.44356, 0.210618, 0, 0, 0, 3.45, 0, 0, 0)
