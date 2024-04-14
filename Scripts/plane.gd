@@ -37,7 +37,7 @@ func _physics_process(delta):
 	if not mouse_controlled:
 		input_pitch_dir = Input.get_axis("pitch_down", "pitch_up")
 		input_roll_dir = Input.get_axis("roll_right", "roll_left")
-		input_thrust_dir = Input.get_axis("thrust_up", "thrust_down")
+		input_thrust_dir = Input.get_axis("controller1_thrust_up", "controller1_thrust_down")
 	
 	
 	
