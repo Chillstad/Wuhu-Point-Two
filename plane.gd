@@ -28,8 +28,7 @@ func _physics_process(delta):
 	var buffer_rotation = Vector3(input_roll_dir * delta, input_yaw_dir * delta, input_pitch_dir * delta )
 	
 	if(buffer_rotation.x != 0):
-		global_rotation.x = lerp_angle(global_rotation.x , global_rotation.x + buffer_rotation.x, 0.5)
-	
+		global_rotation.x += buffer_rotation.x
 	else:
 		global_rotation.x = lerp_angle(global_rotation.x, 0, 0.01)
 		
@@ -39,7 +38,7 @@ func _physics_process(delta):
 	else:
 		global_rotation.z = lerp_angle(global_rotation.z, 0, 0.01)
 	
-	global_rotation.x = clamp(global_rotation.x, -PI/3, PI/3)
+	global_rotation.x = clamp(global_rotation.x + buffer_rotation.x, -PI/3, PI/3)
 	global_rotation.z = clamp(global_rotation.z + buffer_rotation.z, -PI/2.5, PI/2.5)
 	global_rotation.y += global_rotation.x * 0.005
 	
@@ -48,29 +47,3 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-func mySign(val):
-	return abs(val)/val
-	
-func lerpClamp(value, max_mangnitude, lerp_power, override_difference = false):
-	var difference = abs(max_mangnitude) - abs(value)
-	
-	var factor
-	if difference == 0:
-		factor = 0
-	else:
-		factor = 1/difference
-		
-	if override_difference:
-		factor = 1
-	
-	if value > max_mangnitude:
-		return lerp_angle(value, max_mangnitude, lerp_power * difference)
-	if value < -max_mangnitude:
-		return lerp_angle(value, -max_mangnitude, lerp_power * difference)
-	return value
-	
-func powerFactor(target, current):
-	if target - current == 0:
-		return 1
-	
-	return 1/(target - current)
