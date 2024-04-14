@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4i8c5i06r1rw"]
+
+[ext_resource type="Texture2D" uid="uid://deid67ov0qnbg" path="res://Screenshot from 2024-04-13 16-30-09.png" id="1_3slbk"]
+[ext_resource type="Script" path="res://start_game_button.gd" id="2_07fs6"]
+
+[sub_resource type="FontVariation" id="FontVariation_hn4nd"]
+
+[node name="WelcomeScreen" type="Node2D"]
+position = Vector2(540, 318)
+scale = Vector2(0.95, 0.95)
+metadata/_edit_group_ = true
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.685, 0.685)
+texture = ExtResource("1_3slbk")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -582.0
+offset_top = -338.0
+offset_right = -125.0
+offset_bottom = -36.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.576471)
+theme_override_fonts/font = SubResource("FontVariation_hn4nd")
+theme_override_font_sizes/font_size = 80
+text = "Wuhu Point Two"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+offset_left = 247.0
+offset_top = -246.0
+offset_right = 584.0
+offset_bottom = -155.0
+theme_override_font_sizes/font_size = 60
+text = "Start Game"
+script = ExtResource("2_07fs6")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
