@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://di6j3dsp32b3a"]
+
+[ext_resource type="PackedScene" uid="uid://c08oldpru63qm" path="res://Scenes/Wuhu Island.tscn" id="1_6b41h"]
+[ext_resource type="PackedScene" uid="uid://v26j5n8xlh1n" path="res://Scenes/plane.tscn" id="2_qvy4w"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_2n802"]
+rayleigh_coefficient = 4.0
+rayleigh_color = Color(0.0627451, 0.270588, 0.509804, 1)
+mie_color = Color(1, 0.713726, 0.545098, 1)
+ground_color = Color(1, 1, 1, 1)
+energy_multiplier = 4.0
+
+[sub_resource type="Sky" id="Sky_mcgau"]
+sky_material = SubResource("PhysicalSkyMaterial_2n802")
+
+[sub_resource type="Environment" id="Environment_1r2mu"]
+background_mode = 2
+sky = SubResource("Sky_mcgau")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.345098, 0.776471, 0.929412, 1)
+fog_sun_scatter = 0.37
+fog_density = 0.001
+fog_sky_affect = 0.421
+adjustment_enabled = true
+
+[node name="Main" type="Node3D"]
+
+[node name="Wuhu Island" parent="." instance=ExtResource("1_6b41h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1r2mu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.767266, -0.212222, 0.605198, 0, 0.943662, 0.33091, -0.641329, -0.253896, 0.72404, 0, 0, 0)
+light_color = Color(1, 0.862745, 0.682353, 1)
+shadow_enabled = true
+directional_shadow_max_distance = 200.0
+
+[node name="Plane" parent="." instance=ExtResource("2_qvy4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.8789, 0)
