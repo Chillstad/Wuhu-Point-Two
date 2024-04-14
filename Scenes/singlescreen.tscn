@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://di6j3dsp32b3a"]
 
-[ext_resource type="PackedScene" uid="uid://c08oldpru63qm" path="res://Scenes/Wuhu Island.tscn" id="1_6b41h"]
-[ext_resource type="PackedScene" uid="uid://v26j5n8xlh1n" path="res://Scenes/plane.tscn" id="2_qvy4w"]
+[ext_resource type="PackedScene" uid="uid://c08oldpru63qm" path="res://Scenes/Wuhu Island.tscn" id="1_cw384"]
+[ext_resource type="PackedScene" uid="uid://v26j5n8xlh1n" path="res://Scenes/plane.tscn" id="2_va051"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_2n802"]
 rayleigh_coefficient = 4.0
@@ -28,7 +28,7 @@ adjustment_enabled = true
 
 [node name="Main" type="Node3D"]
 
-[node name="Wuhu Island" parent="." instance=ExtResource("1_6b41h")]
+[node name="Wuhu Island" parent="." instance=ExtResource("1_cw384")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -40,5 +40,5 @@ light_color = Color(1, 0.862745, 0.682353, 1)
 shadow_enabled = true
 directional_shadow_max_distance = 200.0
 
-[node name="Plane" parent="." instance=ExtResource("2_qvy4w")]
+[node name="Plane" parent="." instance=ExtResource("2_va051")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.8789, 0)
