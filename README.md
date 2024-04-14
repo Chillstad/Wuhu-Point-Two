@@ -1,12 +1,11 @@
 # Wuhu Point Two 
-### Chili Onions
-### Orion Hess and Cash Hilstad
+### Chili Onions - Orion Hess and Cash Hilstad
 
 ### What?
-We made a recreation of Wii Sports Resort's Island Flyover in Godot. You get to fly around a classic Wuhu Island, viewing the golf fairways, the massive volcano, and other features of the island
+We made a recreation of Wii Sports Resort's Island Flyover in Godot. You get to fly around a classic Wuhu Island, viewing the golf fairways, the massive volcano, and other features of the island.
 
 ### Why? 
-Cause its an awesome blast of nostalgia
+Cause its an awesome blast of nostalgia!
 
 ### How?
 Godot is awesome!
