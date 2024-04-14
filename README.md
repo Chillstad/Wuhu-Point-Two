@@ -1,4 +1,4 @@
-# Wuhu Point Two by The Chili Onions
+# WUHU POINT TWO by The Chili Onions
 ## Orion Hess and Cash Hilstad
 
 ## What?
