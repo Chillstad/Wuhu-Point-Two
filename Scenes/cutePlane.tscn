@@ -1,11 +1,11 @@
 [gd_scene load_steps=26 format=3 uid="uid://hgyftr7mtyl7"]
 
-[ext_resource type="Texture2D" uid="uid://xt3otg3amx6n" path="res://Planes/109_plane_01.png" id="1_4bmay"]
+[ext_resource type="Texture2D" uid="uid://l6tlfrmbn4wd" path="res://Assets/Planes/109_plane_01.png" id="1_rhqkm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4r8m"]
 resource_name = "M_109_plane_01"
 cull_mode = 2
-albedo_texture = ExtResource("1_4bmay")
+albedo_texture = ExtResource("1_rhqkm")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_m8ofk"]
@@ -125,7 +125,7 @@ blend_shape_mode = 0
 resource_name = "lambert_hook"
 cull_mode = 2
 albedo_color = Color(0, 0, 0, 1)
-albedo_texture = ExtResource("1_4bmay")
+albedo_texture = ExtResource("1_rhqkm")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tfqhi"]
