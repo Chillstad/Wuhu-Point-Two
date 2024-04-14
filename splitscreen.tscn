@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c08oldpru63qm" path="res://Wuhu Island.tscn" id="1_3mrgr"]
 [ext_resource type="PackedScene" uid="uid://v26j5n8xlh1n" path="res://plane.tscn" id="2_ayvin"]
-[ext_resource type="PackedScene" path="res://follow_cam.tscn" id="3_r4q06"]
+[ext_resource type="PackedScene" uid="uid://cpmvh4bqg4cs6" path="res://follow_cam.tscn" id="3_r4q06"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_2n802"]
 rayleigh_coefficient = 4.0
@@ -80,6 +80,7 @@ render_target_update_mode = 4
 
 [node name="FollowCam" parent="Control/HBoxContainer/SubViewportContainer2/SubViewport" node_paths=PackedStringArray("target") instance=ExtResource("3_r4q06")]
 fov = 45.0
+move_speed = 2.0
 target = NodePath("../../../../../Plane")
 
 [node name="SubViewportContainer3" type="SubViewportContainer" parent="Control/HBoxContainer"]
@@ -94,4 +95,5 @@ size = Vector2i(576, 648)
 render_target_update_mode = 4
 
 [node name="FollowCam" parent="Control/HBoxContainer/SubViewportContainer3/SubViewport" node_paths=PackedStringArray("target") instance=ExtResource("3_r4q06")]
+move_speed = 2.0
 target = NodePath("../../../../../Plane2")

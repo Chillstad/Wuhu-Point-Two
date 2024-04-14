@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://v26j5n8xlh1n"]
 
 [ext_resource type="Script" path="res://plane.gd" id="1_mjhk8"]
-[ext_resource type="PackedScene" path="res://cutePlane.tscn" id="2_jymt8"]
-[ext_resource type="PackedScene" path="res://follow_cam.tscn" id="3_273df"]
+[ext_resource type="PackedScene" uid="uid://hgyftr7mtyl7" path="res://cutePlane.tscn" id="2_jymt8"]
+[ext_resource type="PackedScene" uid="uid://cpmvh4bqg4cs6" path="res://follow_cam.tscn" id="3_273df"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nkbjo"]
 

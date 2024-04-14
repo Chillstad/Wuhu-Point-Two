@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dm5v534lii5vu"]
 
-[ext_resource type="Texture2D" uid="uid://deid67ov0qnbg" path="res://Screenshot from 2024-04-13 16-30-09.png" id="1_3slbk"]
+[ext_resource type="Texture2D" uid="uid://dxn88wpy0twex" path="res://Screenshot from 2024-04-13 16-30-09.png" id="1_3slbk"]
 [ext_resource type="Script" path="res://welcome_screen.gd" id="1_ywp7n"]
 [ext_resource type="Script" path="res://start_game_button.gd" id="2_07fs6"]
 
