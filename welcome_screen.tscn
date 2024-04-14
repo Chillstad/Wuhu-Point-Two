@@ -1,9 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4i8c5i06r1rw"]
+[gd_scene load_steps=6 format=3 uid="uid://c4i8c5i06r1rw"]
 
 [ext_resource type="Texture2D" uid="uid://deid67ov0qnbg" path="res://Screenshot from 2024-04-13 16-30-09.png" id="1_3slbk"]
 [ext_resource type="Script" path="res://start_game_button.gd" id="2_07fs6"]
 
 [sub_resource type="FontVariation" id="FontVariation_hn4nd"]
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_ktp8p"]
+
+[sub_resource type="Shortcut" id="Shortcut_a3gh5"]
+events = [SubResource("InputEventJoypadButton_ktp8p")]
 
 [node name="WelcomeScreen" type="Node2D"]
 position = Vector2(540, 318)
@@ -33,6 +38,7 @@ offset_top = -246.0
 offset_right = 584.0
 offset_bottom = -155.0
 theme_override_font_sizes/font_size = 60
+shortcut = SubResource("Shortcut_a3gh5")
 text = "Start Game"
 script = ExtResource("2_07fs6")
 
