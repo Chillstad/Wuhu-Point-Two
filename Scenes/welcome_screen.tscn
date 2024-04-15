@@ -1,13 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://dm5v534lii5vu"]
 
-[ext_resource type="Texture2D" uid="uid://b8wrolql1jaq7" path="res://Assets/Screenshot from 2024-04-13 16-30-09.png" id="2_6nmmi"]
+[ext_resource type="Texture2D" uid="uid://deynrgtgdm6yk" path="res://Assets/Screenshot from 2024-04-13 16-30-09.png" id="2_6nmmi"]
 
 [sub_resource type="GDScript" id="GDScript_hvlnx"]
 script/source = "extends Node2D
 
 @onready var single_preload = preload(\"res://Scenes/singlescreen.tscn\")
 @onready var split_preload = preload(\"res://Scenes/splitscreen.tscn\")
-@onready var settings_screen = get_node(\"/root/SettingsScreen\")
 
 func _on_single_player_pressed():
 	get_tree().change_scene_to_file(\"res://Scenes/singlescreen.tscn\")
@@ -16,7 +15,7 @@ func _on_split_screen_pressed():
 	get_tree().change_scene_to_file(\"res://Scenes/splitscreen.tscn\")
 
 func _on_settings_pressed():
-	settings_screen.visible = true
+	SettingsScreen.visible = true
 "
 
 [sub_resource type="FontVariation" id="FontVariation_hn4nd"]
