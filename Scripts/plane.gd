@@ -38,6 +38,7 @@ func _physics_process(delta):
 		input_pitch_dir = Input.get_axis("pitch_down", "pitch_up")
 		input_roll_dir = Input.get_axis("roll_right", "roll_left")
 		input_thrust_dir = Input.get_axis("thrust_up", "thrust_down")
+		
 	
 	
 	
@@ -68,4 +69,8 @@ func _physics_process(delta):
 	
 
 	move_and_slide()
+	
+	if mouse_controlled:
+		input_pitch_dir = 0
+		input_roll_dir = 0
 	

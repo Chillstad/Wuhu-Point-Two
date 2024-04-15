@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://b5yrekberjgrh"]
+
+[ext_resource type="PackedScene" uid="uid://c08oldpru63qm" path="res://Scenes/Wuhu Island.tscn" id="1_8tgky"]
+[ext_resource type="Script" path="res://Scripts/DayNight.gd" id="2_mmmyo"]
+
+[sub_resource type="Gradient" id="Gradient_veytv"]
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.372881, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0365193, 0.239873, 0.847271, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6vkjw"]
+gradient = SubResource("Gradient_veytv")
+use_hdr = true
+fill_to = Vector2(0, 1)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_4aa4e"]
+rayleigh_coefficient = 4.0
+rayleigh_color = Color(0.0700699, 0.289393, 0.542048, 1)
+mie_color = Color(1, 0.713726, 0.545098, 1)
+ground_color = Color(0, 0, 0, 1)
+energy_multiplier = 2.0
+night_sky = SubResource("GradientTexture2D_6vkjw")
+
+[sub_resource type="Sky" id="Sky_mcgau"]
+sky_material = SubResource("PhysicalSkyMaterial_4aa4e")
+
+[sub_resource type="Environment" id="Environment_tjr6v"]
+background_mode = 2
+sky = SubResource("Sky_mcgau")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.345098, 0.776471, 0.929412, 1)
+fog_density = 0.001
+fog_aerial_perspective = 1.0
+fog_sky_affect = 0.05
+adjustment_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_fj5i3"]
+offsets = PackedFloat32Array(0, 0.1, 0.4, 0.5, 0.6, 0.9, 1)
+colors = PackedColorArray(0.929412, 0.568627, 0.596078, 1, 1, 0.862745, 0.682353, 1, 1, 0.862745, 0.682353, 1, 0.929412, 0.568627, 0.596078, 1, 0.027451, 0.109804, 0.321569, 1, 0.027451, 0.109804, 0.321569, 1, 0.929412, 0.568627, 0.596078, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hxi3h"]
+gradient = SubResource("Gradient_fj5i3")
+use_hdr = true
+
+[node name="Wuhu Map" type="Node3D"]
+
+[node name="Wuhu Island" parent="." instance=ExtResource("1_8tgky")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tjr6v")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.928349, 0.271863, 0.253493, -0.360787, 0.823137, 0.438496, -0.0894482, -0.498534, 0.862243, -0.52264, 0.621578, 3.8147e-06)
+rotation_order = 0
+light_color = Color(1, 0.862745, 0.682353, 1)
+light_angular_distance = 1.0
+shadow_enabled = true
+directional_shadow_max_distance = 1000.0
+script = ExtResource("2_mmmyo")
+cycle_length = 60
+sunlight_color = SubResource("GradientTexture1D_hxi3h")

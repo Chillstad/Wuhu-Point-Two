@@ -1,45 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxq0knco4bmok"]
+[gd_scene load_steps=4 format=3 uid="uid://cxq0knco4bmok"]
 
-[ext_resource type="PackedScene" uid="uid://c08oldpru63qm" path="res://Scenes/Wuhu Island.tscn" id="1_3mrgr"]
+[ext_resource type="PackedScene" uid="uid://b5yrekberjgrh" path="res://Scenes/wuhu_map.tscn" id="1_us7x0"]
 [ext_resource type="PackedScene" uid="uid://v26j5n8xlh1n" path="res://Scenes/plane.tscn" id="2_ayvin"]
 [ext_resource type="PackedScene" uid="uid://cpmvh4bqg4cs6" path="res://Scenes/follow_cam.tscn" id="3_r4q06"]
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_2n802"]
-rayleigh_coefficient = 4.0
-rayleigh_color = Color(0.0627451, 0.270588, 0.509804, 1)
-mie_color = Color(1, 0.713726, 0.545098, 1)
-ground_color = Color(1, 1, 1, 1)
-energy_multiplier = 4.0
-
-[sub_resource type="Sky" id="Sky_mcgau"]
-sky_material = SubResource("PhysicalSkyMaterial_2n802")
-
-[sub_resource type="Environment" id="Environment_1r2mu"]
-background_mode = 2
-sky = SubResource("Sky_mcgau")
-ambient_light_source = 3
-reflected_light_source = 2
-tonemap_mode = 2
-fog_enabled = true
-fog_light_color = Color(0.345098, 0.776471, 0.929412, 1)
-fog_sun_scatter = 0.37
-fog_density = 0.001
-fog_sky_affect = 0.421
-adjustment_enabled = true
-
 [node name="Main" type="Node3D"]
 
-[node name="Wuhu Island" parent="." instance=ExtResource("1_3mrgr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_1r2mu")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.767266, -0.212222, 0.605198, 0, 0.943662, 0.33091, -0.641329, -0.253896, 0.72404, 0, 0, 0)
-light_color = Color(1, 0.862745, 0.682353, 1)
-shadow_enabled = true
-directional_shadow_max_distance = 200.0
+[node name="Wuhu Map" parent="." instance=ExtResource("1_us7x0")]
 
 [node name="Plane" parent="." instance=ExtResource("2_ayvin")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.8789, 0)
@@ -75,7 +42,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/SubViewportContainer2"]
 handle_input_locally = false
 scaling_3d_scale = 1.5
-size = Vector2i(576, 648)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="FollowCam" parent="Control/HBoxContainer/SubViewportContainer2/SubViewport" node_paths=PackedStringArray("target") instance=ExtResource("3_r4q06")]
@@ -90,7 +57,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/SubViewportContainer3"]
 handle_input_locally = false
 scaling_3d_scale = 1.5
-size = Vector2i(576, 648)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="FollowCam" parent="Control/HBoxContainer/SubViewportContainer3/SubViewport" node_paths=PackedStringArray("target") instance=ExtResource("3_r4q06")]
