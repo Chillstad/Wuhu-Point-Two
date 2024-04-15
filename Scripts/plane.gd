@@ -13,7 +13,6 @@ var input_type = "Keyboard"
 @export var player_number = 1
 @export var camera : Camera3D
 
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -29,8 +28,10 @@ func _input(event):
 		input_thrust_dir -= 0.1
 	if Input.is_action_just_released("mouse_throttle_down"):
 		input_thrust_dir += 0.1
-		
 	input_thrust_dir = clamp(input_thrust_dir, -1, 1)
+	
+	if Input.is_action_just_pressed("settings_toggle"):
+		SettingsScreen.visible = true
 
 func _physics_process(delta):
 	if not input_type == "Mouse":
@@ -65,10 +66,12 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_p1_input_change(new_input_type):
+	print("Player 1 input changed")
 	if player_number == 1:
 		input_type = new_input_type
 		
 func _on_p2_input_change(new_input_type):
+	print("Player 2 input changed")
 	if player_number == 2:
 		input_type = new_input_type
 		

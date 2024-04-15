@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ceqcp4bxedf4r"]
 
 [ext_resource type="Script" path="res://Scripts/settings_screen.gd" id="1_ecmjt"]
-[ext_resource type="Texture2D" uid="uid://deynrgtgdm6yk" path="res://Assets/Screenshot from 2024-04-13 16-30-09.png" id="1_ssh4e"]
+[ext_resource type="Texture2D" uid="uid://b8wrolql1jaq7" path="res://Assets/Screenshot from 2024-04-13 16-30-09.png" id="1_ssh4e"]
 [ext_resource type="Script" path="res://Scripts/P1InputSettingsButton.gd" id="2_54ges"]
 [ext_resource type="Script" path="res://Scripts/P2InputSettingsButton.gd" id="3_6y3pl"]
 

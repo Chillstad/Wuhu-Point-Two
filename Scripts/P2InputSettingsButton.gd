@@ -7,11 +7,8 @@ func _ready():
 	select(InputSettings.player_2_input_device_index)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_item_selected(index):
+	print("Item selected for player 2: ")
+	print(index)
 	InputSettings.setPlayer2(index)
 	

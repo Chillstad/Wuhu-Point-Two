@@ -9,5 +9,7 @@ func _ready():
 
 
 func _on_item_selected(index):
+	print("Item selected for player 1: ")
+	print(index)
 	InputSettings.setPlayer1(index)
 	
