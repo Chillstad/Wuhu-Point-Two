@@ -1,29 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://dm5v534lii5vu"]
+[gd_scene load_steps=5 format=3 uid="uid://dm5v534lii5vu"]
 
 [ext_resource type="Texture2D" uid="uid://b8wrolql1jaq7" path="res://Assets/Screenshot from 2024-04-13 16-30-09.png" id="2_6nmmi"]
-[ext_resource type="Script" path="res://Scripts/start_game_button.gd" id="3_i1u71"]
-[ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="3_qrqwm"]
 
 [sub_resource type="GDScript" id="GDScript_hvlnx"]
 script/source = "extends Node2D
 
+@onready var single_preload = preload(\"res://Scenes/singlescreen.tscn\")
+@onready var split_preload = preload(\"res://Scenes/splitscreen.tscn\")
+@onready var settings_screen = get_node(\"/root/SettingsScreen\")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _on_single_player_pressed():
+	get_tree().change_scene_to_file(\"res://Scenes/singlescreen.tscn\")
 
+func _on_split_screen_pressed():
+	get_tree().change_scene_to_file(\"res://Scenes/splitscreen.tscn\")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_settings_pressed():
+	settings_screen.visible = true
 "
 
 [sub_resource type="FontVariation" id="FontVariation_hn4nd"]
 
-[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_ktp8p"]
-
 [sub_resource type="Shortcut" id="Shortcut_a3gh5"]
-events = [SubResource("InputEventJoypadButton_ktp8p")]
 
 [node name="WelcomeScreen" type="Node2D"]
 position = Vector2(540, 318)
@@ -53,9 +51,7 @@ offset_top = -246.0
 offset_right = 610.0
 offset_bottom = -155.0
 theme_override_font_sizes/font_size = 60
-shortcut = SubResource("Shortcut_a3gh5")
 text = "Singleplayer"
-script = ExtResource("3_i1u71")
 
 [node name="SplitScreen" type="Button" parent="."]
 offset_left = 179.0
@@ -65,7 +61,6 @@ offset_bottom = -52.0
 theme_override_font_sizes/font_size = 60
 shortcut = SubResource("Shortcut_a3gh5")
 text = "Splitscreen"
-script = ExtResource("3_i1u71")
 
 [node name="Settings" type="Button" parent="."]
 offset_left = 197.895
@@ -73,10 +68,8 @@ offset_top = 194.737
 offset_right = 629.895
 offset_bottom = 285.737
 theme_override_font_sizes/font_size = 60
-shortcut = SubResource("Shortcut_a3gh5")
 text = "Settings"
-script = ExtResource("3_qrqwm")
 
-[connection signal="pressed" from="SinglePlayer" to="SinglePlayer" method="_on_pressed_single_player"]
-[connection signal="pressed" from="SplitScreen" to="SinglePlayer" method="_on_button_2_pressed"]
-[connection signal="pressed" from="Settings" to="Settings" method="_on_pressed"]
+[connection signal="pressed" from="SinglePlayer" to="." method="_on_single_player_pressed"]
+[connection signal="pressed" from="SplitScreen" to="." method="_on_split_screen_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

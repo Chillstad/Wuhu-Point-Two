@@ -5,22 +5,6 @@
 [ext_resource type="Script" path="res://Scripts/P2InputSettingsButton.gd" id="3_6y3pl"]
 
 [sub_resource type="GDScript" id="GDScript_hvlnx"]
-script/source = "extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_p_2_input_settings_button_item_selected(index):
-	pass # Replace with function body.
-"
 
 [sub_resource type="FontVariation" id="FontVariation_hn4nd"]
 
