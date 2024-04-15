@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dm5v534lii5vu"]
+[gd_scene load_steps=8 format=3 uid="uid://dm5v534lii5vu"]
 
 [ext_resource type="Texture2D" uid="uid://b8wrolql1jaq7" path="res://Assets/Screenshot from 2024-04-13 16-30-09.png" id="2_6nmmi"]
 [ext_resource type="Script" path="res://Scripts/start_game_button.gd" id="3_i1u71"]
+[ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="3_qrqwm"]
 
 [sub_resource type="GDScript" id="GDScript_hvlnx"]
 script/source = "extends Node2D
@@ -46,7 +47,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Button" type="Button" parent="."]
+[node name="SinglePlayer" type="Button" parent="."]
 offset_left = 179.0
 offset_top = -246.0
 offset_right = 610.0
@@ -56,7 +57,7 @@ shortcut = SubResource("Shortcut_a3gh5")
 text = "Singleplayer"
 script = ExtResource("3_i1u71")
 
-[node name="Button2" type="Button" parent="."]
+[node name="SplitScreen" type="Button" parent="."]
 offset_left = 179.0
 offset_top = -143.0
 offset_right = 611.0
@@ -66,5 +67,16 @@ shortcut = SubResource("Shortcut_a3gh5")
 text = "Splitscreen"
 script = ExtResource("3_i1u71")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
-[connection signal="pressed" from="Button2" to="Button" method="_on_button_2_pressed"]
+[node name="Settings" type="Button" parent="."]
+offset_left = 197.895
+offset_top = 194.737
+offset_right = 629.895
+offset_bottom = 285.737
+theme_override_font_sizes/font_size = 60
+shortcut = SubResource("Shortcut_a3gh5")
+text = "Settings"
+script = ExtResource("3_qrqwm")
+
+[connection signal="pressed" from="SinglePlayer" to="SinglePlayer" method="_on_pressed_single_player"]
+[connection signal="pressed" from="SplitScreen" to="SinglePlayer" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Settings" to="Settings" method="_on_pressed"]

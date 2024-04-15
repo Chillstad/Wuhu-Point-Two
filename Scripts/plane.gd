@@ -8,8 +8,9 @@ var input_pitch_dir = 0
 var input_roll_dir = 0
 var input_thrust_dir = 0
 
-@export var mouse_controlled = true
+var input_type = "Keyboard"
 
+@export var player_number = 1
 @export var camera : Camera3D
 
 
@@ -17,7 +18,7 @@ var input_thrust_dir = 0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
-	if mouse_controlled:
+	if input_type == "Mouse":
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event):
@@ -32,14 +33,8 @@ func _input(event):
 	input_thrust_dir = clamp(input_thrust_dir, -1, 1)
 
 func _physics_process(delta):
-	# valid inputs are
-	# ("pitch_up", "pitch_down", "yaw_left", "yaw_right", "roll_left", "roll_right", "thrust_up", "thrust_down")
-	if not mouse_controlled:
-		input_pitch_dir = Input.get_axis("pitch_down", "pitch_up")
-		input_roll_dir = Input.get_axis("roll_right", "roll_left")
-		input_thrust_dir = Input.get_axis("controller1_thrust_up", "controller1_thrust_down")
-	
-	
+	if not input_type == "Mouse":
+		getInput()
 	
 	#velocity -= Vector3.rotated(new Vector3(0, input_thrust_dir * delta * speed_multiplyer, 0), global_rotation)
 	buffer_velocity += (input_thrust_dir * speed_multiplyer * delta)
@@ -68,4 +63,26 @@ func _physics_process(delta):
 	
 
 	move_and_slide()
-	
+
+func _on_p1_input_change(new_input_type):
+	if player_number == 1:
+		input_type = new_input_type
+		
+func _on_p2_input_change(new_input_type):
+	if player_number == 2:
+		input_type = new_input_type
+		
+func getInput():
+	match input_type:
+		"Keyboard":
+			input_pitch_dir = Input.get_axis("keyboard_pitch_down", "keyboard_pitch_up")
+			input_roll_dir = Input.get_axis("keyboard_roll_right", "keyboard_roll_left")
+			input_thrust_dir = Input.get_axis("keyboard_thrust_up", "keyboard_thrust_down")
+		"Controller1":
+			input_pitch_dir = Input.get_axis("controller1_pitch_down", "controller1_pitch_up")
+			input_roll_dir = Input.get_axis("controller1_roll_right", "controller1_roll_left")
+			input_thrust_dir = Input.get_axis("controller1_thrust_up", "controller1_thrust_down")
+		"Controller2":
+			input_pitch_dir = Input.get_axis("controller2_pitch_down", "controller2_pitch_up")
+			input_roll_dir = Input.get_axis("controller2_roll_right", "controller2_roll_left")
+			input_thrust_dir = Input.get_axis("controller2_thrust_up", "controller2_thrust_down")

@@ -1,3 +1,5 @@
+[gd_scene load_steps=6 format=3 uid="uid://btl2bp37si4x6"]
+
 [ext_resource type="PackedScene" uid="uid://c08oldpru63qm" path="res://Scenes/Wuhu Island.tscn" id="1_cw384"]
 [ext_resource type="PackedScene" uid="uid://v26j5n8xlh1n" path="res://Scenes/plane.tscn" id="2_va051"]
 

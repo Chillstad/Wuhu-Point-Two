@@ -46,7 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.8789, 0)
 
 [node name="Plane2" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_ayvin")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 26.8789, 72)
-mouse_controlled = false
+player_number = 2
 camera = NodePath("../Plane/FollowCam")
 
 [node name="Control" type="Control" parent="."]

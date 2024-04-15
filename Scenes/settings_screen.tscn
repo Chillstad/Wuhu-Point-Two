@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceqcp4bxedf4r"]
+[gd_scene load_steps=6 format=3 uid="uid://ceqcp4bxedf4r"]
 
 [ext_resource type="Texture2D" uid="uid://b8wrolql1jaq7" path="res://Assets/Screenshot from 2024-04-13 16-30-09.png" id="1_ssh4e"]
+[ext_resource type="Script" path="res://Scripts/P1InputSettingsButton.gd" id="2_54ges"]
+[ext_resource type="Script" path="res://Scripts/P2InputSettingsButton.gd" id="3_6y3pl"]
 
 [sub_resource type="GDScript" id="GDScript_hvlnx"]
 script/source = "extends Node2D
@@ -14,11 +16,15 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_p_2_input_settings_button_item_selected(index):
+	pass # Replace with function body.
 "
 
 [sub_resource type="FontVariation" id="FontVariation_hn4nd"]
 
-[node name="WelcomeScreen" type="Node2D"]
+[node name="SettingsScreen" type="Node2D"]
 position = Vector2(540, 318)
 scale = Vector2(0.95, 0.95)
 script = SubResource("GDScript_hvlnx")
@@ -52,6 +58,7 @@ offset_left = 473.684
 offset_top = -269.474
 offset_right = 518.684
 offset_bottom = -249.474
+script = ExtResource("2_54ges")
 
 [node name="P2InputSettingsLabel" type="Label" parent="."]
 offset_left = 273.684
@@ -65,3 +72,7 @@ offset_left = 473.684
 offset_top = -239.474
 offset_right = 518.684
 offset_bottom = -219.474
+script = ExtResource("3_6y3pl")
+
+[connection signal="item_selected" from="P1InputSettingsButton" to="P1InputSettingsButton" method="_on_item_selected"]
+[connection signal="item_selected" from="P2InputSettingsButton" to="P2InputSettingsButton" method="_on_item_selected"]
